@@ -1,21 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Story } from '../../api'
+import Item from './Item'
 
-const StyledWrapper = styled.div`
-  &:not(:last-child) {
-    border-bottom: 1px solid red;
+const StyledWrapper = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & > li:not(:last-child) {
+    border-bottom: 1px solid #eee;
   }
 `
 
 interface ListProps {
-  items: any[]
+  items: Story[]
 }
 
 const Wrapper: React.FC<ListProps> = (props) => {
   return (
     <StyledWrapper>
       {props.items.map((item, index, _) => (
-        <div key={index}>{item.id}</div>
+        <Item item={item} key={index} />
       ))}
     </StyledWrapper>
   )

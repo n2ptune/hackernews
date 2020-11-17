@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getStories, Story } from '../api'
-import Wrapper from '../components/ListWrapper'
+import Wrapper from '../components/list/Wrapper'
 
 const Main: React.FC = () => {
   const [stories, setStories] = useState<Story[]>([])
