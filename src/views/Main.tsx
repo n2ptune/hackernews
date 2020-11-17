@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getStories } from '../api'
+import { getStories, Story } from '../api'
+import Wrapper from '../components/ListWrapper'
 
 const Main: React.FC = () => {
-  const [stories, setStories] = useState([])
+  const [stories, setStories] = useState<Story[]>([])
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -12,9 +13,19 @@ const Main: React.FC = () => {
     }
 
     fetchStories()
+
+    return () => setStories([])
   }, [])
 
-  return <div>{stories.length}</div>
+  return (
+    <>
+      {stories.length ? (
+        <Wrapper items={stories}></Wrapper>
+      ) : (
+        <div>Loading....</div>
+      )}
+    </>
+  )
 }
 
 export default Main
