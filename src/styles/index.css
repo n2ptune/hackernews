@@ -4,6 +4,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--background-color);
 }
 
 *,
@@ -13,9 +14,11 @@ body {
 }
 
 :root {
-  --head-color: #bc2c3d;
+  --head-color: #0a5440;
+  --background-color: #ededed;
 }
 
 .container {
   max-width: 800px;
+  margin: 0.5rem auto;
 }

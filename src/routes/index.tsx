@@ -1,20 +1,24 @@
 import * as React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Container from '../components/Container'
 import Main from '../views/Main'
 import Top from '../views/Top'
 // import Best from '../views/Best'
 // import Ask from '../views/Ask'
 // import Job from '../views/Job'
+// import Show from '../views/Show'
 
 const Router: React.FC = ({ children }) => (
   <BrowserRouter>
     {children}
     <Switch>
-      <Route path="/" exact component={Main} />
-      <Route path="/top" component={Top} />
-      {/* <Route path="/best" component={Best} />
+      <Container>
+        <Route path="/" exact component={Main} />
+        <Route path="/top" component={Top} />
+        {/* <Route path="/best" component={Best} />
       <Route path="/ask" component={Ask} />
       <Route path="/job" component={Job} /> */}
+      </Container>
     </Switch>
   </BrowserRouter>
 )
@@ -49,6 +53,10 @@ const routes: TypeRoute[] = [
   {
     path: '/job',
     name: 'Job'
+  },
+  {
+    path: '/show',
+    name: 'Show'
   }
 ]
 
