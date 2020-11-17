@@ -1,0 +1,21 @@
+@import-normalize;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --head-color: #bc2c3d;
+}
+
+.container {
+  max-width: 800px;
+}
