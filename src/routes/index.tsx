@@ -15,6 +15,7 @@ const Router: React.FC = ({ children }) => (
       <Container>
         <Route path="/" exact component={Main} />
         <Route path="/top" component={Top} />
+        {/* <Route path="/top/:id" exact component={Top} /> */}
         {/* <Route path="/best" component={Best} />
       <Route path="/ask" component={Ask} />
       <Route path="/job" component={Job} /> */}

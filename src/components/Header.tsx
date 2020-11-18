@@ -49,7 +49,7 @@ const Header = () => (
         HN
       </StyledLink>
       {routes.map((route) => (
-        <StyledLink to={route.path} key={route.name} exact>
+        <StyledLink to={route.path} key={route.name} exact={route.exact}>
           {route.name}
         </StyledLink>
       ))}

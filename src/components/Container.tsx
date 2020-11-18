@@ -16,12 +16,14 @@ const Wrapper = styled.div`
   margin-bottom: 3rem;
 `
 
-const Container: React.FC = ({ children }) => (
-  <Wrapper>
-    <Pagenation className="container">Top Pagenation</Pagenation>
-    <StyledContainer className="container">{children}</StyledContainer>
-    <Pagenation className="container">Bottom Pagenation</Pagenation>
-  </Wrapper>
-)
+const Container: React.FC = ({ children }) => {
+  return (
+    <Wrapper>
+      <Pagenation className="container"></Pagenation>
+      <StyledContainer className="container">{children}</StyledContainer>
+      <Pagenation className="container">Bottom Pagenation</Pagenation>
+    </Wrapper>
+  )
+}
 
 export default Container

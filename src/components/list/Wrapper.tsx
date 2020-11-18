@@ -9,7 +9,7 @@ const StyledWrapper = styled.ul`
   padding: 0;
 
   & > li:not(:last-child) {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
   }
 `
 
