@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 interface PagenationProps {
@@ -13,10 +13,17 @@ const StyledPagenation = styled.div`
   padding: 1.5rem 10px;
 `
 
-const Pagenation: React.FC<PagenationProps> = ({ page, path }) => (
-  <StyledPagenation className="container">
-    {page}, {path}
-  </StyledPagenation>
-)
+const Pagenation: React.FC<PagenationProps> = ({ page, path }) => {
+  const [isLeft, setLeft] = useState(false)
+  const [isRight, setRight] = useState(false)
+
+  useEffect(() => {})
+
+  return (
+    <StyledPagenation className="container">
+      {page}, {path}
+    </StyledPagenation>
+  )
+}
 
 export default Pagenation
