@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { RouteComponentProps, useParams, withRouter } from 'react-router-dom'
 import { getStories, Story } from '../api'
 import Wrapper from '../components/list/Wrapper'
 
-const Top: React.FC = () => {
+const Top: React.FC<RouteComponentProps> = () => {
   const [stories, setStories] = useState<Story[]>([])
   const { id } = useParams<{ id: string }>()
 
@@ -30,4 +30,4 @@ const Top: React.FC = () => {
   )
 }
 
-export default Top
+export default withRouter(Top)

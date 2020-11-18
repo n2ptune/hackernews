@@ -14,8 +14,10 @@ const Router: React.FC = ({ children }) => (
     <Switch>
       <Container>
         <Route path="/" exact component={Main} />
-        <Route path="/top" component={Top} />
-        {/* <Route path="/top/:id" exact component={Top} /> */}
+        <Route path="/news" exact component={Main} />
+        <Route path="/news/:id" exact component={Main} />
+        <Route path="/top" exact component={Top} />
+        <Route path="/top/:id" component={Top} />
         {/* <Route path="/best" component={Best} />
       <Route path="/ask" component={Ask} />
       <Route path="/job" component={Job} /> */}
@@ -35,13 +37,11 @@ const routes: TypeRoute[] = [
   {
     path: '/',
     name: 'Main',
-    component: Main,
     exact: true
   },
   {
     path: '/top',
-    name: 'Top',
-    component: Top
+    name: 'Top'
   },
   {
     path: '/best',

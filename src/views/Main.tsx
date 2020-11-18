@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { RouteComponentProps, useParams, withRouter } from 'react-router-dom'
 import { getStories, Story } from '../api'
 import Wrapper from '../components/list/Wrapper'
 
-const Main: React.FC = () => {
+const Main: React.FC<RouteComponentProps> = () => {
   const [stories, setStories] = useState<Story[]>([])
+  const { id } = useParams<{ id: string }>()
 
   useEffect(() => {
     const fetchStories = async () => {
-      const data = await getStories(1, 'newStories')
+      const data = await getStories(id ? parseInt(id) : 1, 'newStories')
 
       setStories(data)
     }
@@ -15,7 +17,7 @@ const Main: React.FC = () => {
     fetchStories()
 
     return () => setStories([])
-  }, [])
+  }, [id])
 
   return (
     <>
@@ -28,4 +30,4 @@ const Main: React.FC = () => {
   )
 }
 
-export default Main
+export default withRouter(Main)
