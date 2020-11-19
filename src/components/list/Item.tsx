@@ -1,5 +1,6 @@
 import React from 'react'
 import { Story } from '../../api'
+import { distanceDateFromNow } from '../../api/utils'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
@@ -28,7 +29,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
     <Wrapper>
       <p>
         <Title>{item.title} </Title>
-        <span>{item.time}</span>
+        <span>{distanceDateFromNow(item.time * 1000, Date.now())}</span>
       </p>
       <p>
         by{' '}

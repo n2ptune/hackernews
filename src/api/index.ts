@@ -21,7 +21,7 @@ interface Story {
   deleted?: boolean
   type?: string
   by?: string
-  time?: number
+  time: number
   text?: string
   dead?: boolean
   parent?: number

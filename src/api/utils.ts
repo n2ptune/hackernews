@@ -20,6 +20,30 @@ function extractStartToEnd(option: ExtractOption): number[] {
   return option.value.slice(option.start, option.end)
 }
 
+function distanceDateFromNow(ts: number, now: number = 1605765464624): string {
+  const oneday = 24 * 60 ** 2 * 1000
+  const from = now || Date.now()
+  const distance = from - ts
+  const diff = distance / oneday
+
+  // 하루 이상
+  if (diff >= 1) {
+    return `${Math.floor(diff)}일 전`
+  } else {
+    const to = new Date(ts)
+    const fromDate = new Date(from)
+    const hourDistance = fromDate.getHours() - to.getHours()
+
+    if (hourDistance <= 0) {
+      return `몇분 전`
+    }
+
+    return `${fromDate.getHours() - to.getHours()}시간 전`
+  }
+}
+
 export { url }
 
 export { extractStartToEnd }
+
+export { distanceDateFromNow }
