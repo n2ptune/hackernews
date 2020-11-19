@@ -68,6 +68,6 @@ async function getStoriesByItem(items: number | number[]): Promise<Story[]> {
   return data
 }
 
-export type { Story }
+export type { Story, StoryType }
 
 export { getStories }

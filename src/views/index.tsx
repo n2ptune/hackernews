@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps, useParams, withRouter } from 'react-router-dom'
-import { getStories, Story } from '../api'
+import { getStories, Story, StoryType } from '../api'
 import Loading from '../components/list/Loading'
 import Wrapper from '../components/list/Wrapper'
 
-const Best: React.FC<RouteComponentProps> = () => {
+interface ViewLayoutProps extends RouteComponentProps {
+  target: StoryType
+}
+
+const ViewLayout: React.FC<ViewLayoutProps> = ({ target }) => {
   const [stories, setStories] = useState<Story[]>([])
   const { id } = useParams<{ id: string }>()
 
   useEffect(() => {
     const fetchStories = async () => {
-      const data = await getStories(id ? parseInt(id) : 1, 'bestStories')
+      const data = await getStories(id ? parseInt(id) : 1, target)
 
       setStories(data)
     }
@@ -18,11 +22,11 @@ const Best: React.FC<RouteComponentProps> = () => {
     fetchStories()
 
     return () => setStories([])
-  }, [id])
+  }, [target, id])
 
   return (
     <>{stories.length ? <Wrapper items={stories}></Wrapper> : <Loading />}</>
   )
 }
 
-export default withRouter(Best)
+export default withRouter(ViewLayout)

@@ -1,31 +1,52 @@
 import * as React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Container from '../components/Container'
-import Main from '../views/Main'
-import Top from '../views/Top'
-import Best from '../views/Best'
-import Ask from '../views/Ask'
-import Job from '../views/Job'
-import Show from '../views/Show'
+import ViewLayout from '../views'
 
 const Router: React.FC = ({ children }) => (
   <BrowserRouter>
     {children}
     <Switch>
       <Container>
-        <Route path="/" exact component={Main} />
-        <Route path="/news" exact component={Main} />
-        <Route path="/news/:id" component={Main} />
-        <Route path="/top" exact component={Top} />
-        <Route path="/top/:id" component={Top} />
-        <Route path="/best" exact component={Best} />
-        <Route path="/best/:id" component={Best} />
-        <Route path="/ask" exact component={Ask} />
-        <Route path="/ask/:id" component={Ask} />
-        <Route path="/job" exact component={Job} />
-        <Route path="/job/:id" component={Job} />
-        <Route path="/show" exact component={Show} />
-        <Route path="/show/:id" component={Show} />
+        <Route path="/" exact>
+          <ViewLayout target="newStories" />
+        </Route>
+        <Route path="/news" exact>
+          <ViewLayout target="newStories" />
+        </Route>
+        <Route path="/news/:id">
+          <ViewLayout target="newStories" />
+        </Route>
+        <Route path="/top" exact>
+          <ViewLayout target="topStories" />
+        </Route>
+        <Route path="/top/:id">
+          <ViewLayout target="topStories" />
+        </Route>
+        <Route path="/best" exact>
+          <ViewLayout target="bestStories" />
+        </Route>
+        <Route path="/best/:id">
+          <ViewLayout target="bestStories" />
+        </Route>
+        <Route path="/ask" exact>
+          <ViewLayout target="askStories" />
+        </Route>
+        <Route path="/ask/:id">
+          <ViewLayout target="askStories" />
+        </Route>
+        <Route path="/job" exact>
+          <ViewLayout target="jobStories" />
+        </Route>
+        <Route path="/job/:id">
+          <ViewLayout target="jobStories" />
+        </Route>
+        <Route path="/show" exact>
+          <ViewLayout target="showStories" />
+        </Route>
+        <Route path="/show/:id">
+          <ViewLayout target="showStories" />
+        </Route>
       </Container>
     </Switch>
   </BrowserRouter>
@@ -34,7 +55,6 @@ const Router: React.FC = ({ children }) => (
 interface TypeRoute {
   path: string
   name: string
-  component?: React.FC
   exact?: boolean
 }
 
@@ -65,8 +85,6 @@ const routes: TypeRoute[] = [
     name: 'Show'
   }
 ]
-
-export type { TypeRoute }
 
 export { routes }
 
