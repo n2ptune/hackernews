@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { routes } from '../routes'
 import styled from 'styled-components'
+import { ReactComponent as GithubIconSVG } from '../assets/github.svg'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -37,9 +38,16 @@ const StyledLink = styled(NavLink)`
 
 const GithubIcon = styled.a`
   text-decoration: none;
-  color: white;
   float: right;
-  transform: translateY(20%);
+
+  > svg {
+    fill: rgba(255, 255, 255, 0.6);
+    transition: fill 200ms ease;
+
+    &:hover {
+      fill: rgba(255, 255, 255, 1);
+    }
+  }
 `
 
 const Header = () => (
@@ -54,7 +62,7 @@ const Header = () => (
         </StyledLink>
       ))}
       <GithubIcon href="https://github.com/n2ptune/hackernews" target="_blank">
-        Github
+        <GithubIconSVG />
       </GithubIcon>
     </Inner>
   </StyledHeader>
