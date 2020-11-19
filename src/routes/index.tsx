@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Container from '../components/Container'
 import Main from '../views/Main'
 import Top from '../views/Top'
-// import Best from '../views/Best'
-// import Ask from '../views/Ask'
-// import Job from '../views/Job'
-// import Show from '../views/Show'
+import Best from '../views/Best'
+import Ask from '../views/Ask'
+import Job from '../views/Job'
+import Show from '../views/Show'
 
 const Router: React.FC = ({ children }) => (
   <BrowserRouter>
@@ -15,12 +15,17 @@ const Router: React.FC = ({ children }) => (
       <Container>
         <Route path="/" exact component={Main} />
         <Route path="/news" exact component={Main} />
-        <Route path="/news/:id" exact component={Main} />
+        <Route path="/news/:id" component={Main} />
         <Route path="/top" exact component={Top} />
         <Route path="/top/:id" component={Top} />
-        {/* <Route path="/best" component={Best} />
-      <Route path="/ask" component={Ask} />
-      <Route path="/job" component={Job} /> */}
+        <Route path="/best" exact component={Best} />
+        <Route path="/best/:id" component={Best} />
+        <Route path="/ask" exact component={Ask} />
+        <Route path="/ask/:id" component={Ask} />
+        <Route path="/job" exact component={Job} />
+        <Route path="/job/:id" component={Job} />
+        <Route path="/show" exact component={Show} />
+        <Route path="/show/:id" component={Show} />
       </Container>
     </Switch>
   </BrowserRouter>
