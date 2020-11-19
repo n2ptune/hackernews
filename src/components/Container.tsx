@@ -22,7 +22,7 @@ const Container: React.FC = ({ children }) => {
     if (pathname === '/') {
       setPath('news')
     } else {
-      setPath(pathname.substr(1).replace(/\/+[0-9]/g, ''))
+      setPath(pathname.substr(1).replace(/\/|[0-9]+/gm, ''))
     }
 
     const match = pathname.match(/[0-9]+/g)

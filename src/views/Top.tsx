@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps, useParams, withRouter } from 'react-router-dom'
 import { getStories, Story } from '../api'
+import Loading from '../components/list/Loading'
 import Wrapper from '../components/list/Wrapper'
 
 const Top: React.FC<RouteComponentProps> = () => {
@@ -20,13 +21,7 @@ const Top: React.FC<RouteComponentProps> = () => {
   }, [id])
 
   return (
-    <>
-      {stories.length ? (
-        <Wrapper items={stories}></Wrapper>
-      ) : (
-        <div>Loading....</div>
-      )}
-    </>
+    <>{stories.length ? <Wrapper items={stories}></Wrapper> : <Loading />}</>
   )
 }
 
