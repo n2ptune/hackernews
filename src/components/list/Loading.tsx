@@ -6,15 +6,15 @@ const LoadingComponent: React.FC = (props) => (
     speed={1}
     width={800}
     height={100}
-    viewBox="0 0 800 84"
-    style={{ width: '100%' }}
+    viewBox="0 0 800 100"
+    style={{ width: '100%', height: '100%' }}
     {...props}
   >
-    <rect x="9" y="4" rx="0" ry="0" width="720" height="22" />
-    <rect x="18" y="14" rx="0" ry="0" width="700" height="6" />
-    <rect x="11" y="33" rx="0" ry="0" width="300" height="13" />
-    <rect x="320" y="33" rx="0" ry="0" width="350" height="13" />
-    <rect x="680" y="33" rx="0" ry="0" width="60" height="13" />
+    <rect x="10" y="10" rx="0" ry="0" width="100" height="84" />
+    <rect x="120" y="10" rx="0" ry="0" width="660" height="36" />
+    <rect x="120" y="58" rx="0" ry="0" width="450" height="36" />
+    <rect x="580" y="58" rx="0" ry="0" width="120" height="36" />
+    <rect x="710" y="58" rx="0" ry="0" width="70" height="36" />
   </ContentLoader>
 )
 

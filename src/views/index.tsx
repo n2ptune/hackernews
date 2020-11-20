@@ -25,7 +25,8 @@ const ViewLayout: React.FC<ViewLayoutProps> = ({ target }) => {
   }, [target, id])
 
   return (
-    <>{stories.length ? <Wrapper items={stories}></Wrapper> : <Loading />}</>
+    // <>{stories.length ? <Wrapper items={stories}></Wrapper> : <Loading />}</>
+    <Loading />
   )
 }
 
