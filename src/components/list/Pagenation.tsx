@@ -63,7 +63,7 @@ const Pagenation: React.FC<PagenationProps> = ({ page, path }) => {
   return (
     <StyledPagenation className="container">
       <Direction onClick={handleLeftClick}>{isLeft ? '<' : ''}</Direction>
-      <StyledTitle>Show More {page}/10</StyledTitle>
+      <StyledTitle>{page}/10</StyledTitle>
       <Direction onClick={handleRightClick}>{isRight ? '>' : ''}</Direction>
     </StyledPagenation>
   )

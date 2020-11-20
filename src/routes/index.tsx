@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ViewLayout from '../views'
+import DetailLayout from '../views/detail'
 
 const Router: React.FC = ({ children }) => (
   <BrowserRouter>
@@ -45,6 +46,7 @@ const Router: React.FC = ({ children }) => (
       <Route path="/show/:id">
         <ViewLayout target="showStories" />
       </Route>
+      <Route path="/story/:id" component={DetailLayout} />
     </Switch>
   </BrowserRouter>
 )
