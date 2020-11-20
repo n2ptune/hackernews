@@ -1,5 +1,11 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
+import styled from 'styled-components'
+
+const LoadingContainer = styled.div`
+  margin: 1rem 0;
+  background: white;
+`
 
 const LoadingComponent: React.FC = (props) => (
   <ContentLoader
@@ -9,9 +15,7 @@ const LoadingComponent: React.FC = (props) => (
     viewBox="0 0 800 100"
     style={{
       width: '100%',
-      height: '100%',
-      backgroundColor: 'white',
-      margin: '1rem 0'
+      height: '100%'
     }}
     {...props}
   >
@@ -25,11 +29,11 @@ const LoadingComponent: React.FC = (props) => (
 
 const Loading: React.FC = () => {
   return (
-    <>
+    <LoadingContainer>
       {new Array(10).fill(0).map((_, i, __) => (
         <LoadingComponent key={i} />
       ))}
-    </>
+    </LoadingContainer>
   )
 }
 
