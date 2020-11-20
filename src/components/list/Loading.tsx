@@ -7,7 +7,12 @@ const LoadingComponent: React.FC = (props) => (
     width={800}
     height={100}
     viewBox="0 0 800 100"
-    style={{ width: '100%', height: '100%' }}
+    style={{
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'white',
+      margin: '1rem 0'
+    }}
     {...props}
   >
     <rect x="10" y="10" rx="0" ry="0" width="100" height="84" />

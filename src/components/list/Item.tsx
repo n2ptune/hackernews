@@ -28,7 +28,11 @@ const Item: React.FC<ItemProps> = ({ item }) => {
   return (
     <Wrapper>
       <p>
-        <Title>{item.title} </Title>
+        <Title>
+          <a href={item.url} target="_blank" rel="noreferrer">
+            {item.title}
+          </a>{' '}
+        </Title>
         <span>{distanceDateFromNow(item.time * 1000, Date.now())}</span>
       </p>
       <p>
