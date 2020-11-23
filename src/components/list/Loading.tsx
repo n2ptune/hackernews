@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader'
 import styled from 'styled-components'
 
 const LoadingContainer = styled.div`
-  margin: 1rem 0;
+  margin: 0 auto;
   background: white;
 `
 
@@ -36,5 +36,7 @@ const Loading: React.FC = () => {
     </LoadingContainer>
   )
 }
+
+export { LoadingComponent }
 
 export default Loading

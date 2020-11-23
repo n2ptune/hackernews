@@ -34,8 +34,8 @@ const Comments = styled(User)``
 
 const Score = styled.div`
   align-self: center;
+  flex-basis: 7%;
   margin-right: 1.5rem;
-  padding: 0 1rem;
   height: 100%;
   font-size: 1.2rem;
   font-weight: bold;
@@ -56,7 +56,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
 
   return (
     <Wrapper>
-      <Score>{item.score}</Score>
+      <Score>{item.score || 0}</Score>
       <div>
         <div style={{ marginBottom: '0.5rem' }}>
           <Title>

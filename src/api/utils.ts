@@ -11,7 +11,10 @@ const url = {
   askStories: 'https://hacker-news.firebaseio.com/v0/askstories.json',
   showStories: 'https://hacker-news.firebaseio.com/v0/showstories.json',
   jobStories: 'https://hacker-news.firebaseio.com/v0/jobstories.json',
-  getStory(id: number) {
+  getStory(id: number): string {
+    return `https://api.hackerwebapp.com/item/${id}`
+  },
+  getStoryOrigin(id: number): string {
     return `https://hacker-news.firebaseio.com/v0/item/${id}.json`
   }
 }

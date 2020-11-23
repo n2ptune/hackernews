@@ -60,14 +60,16 @@ async function getStoriesByItem(items: number | number[]): Promise<Story[]> {
   if (typeof items === 'number') {
     items = [items]
   }
-
-  const wrapping = items.map((item) => axios.get(url.getStory(item)))
-
+  const wrapping = items.map((item) => axios.get(url.getStoryOrigin(item)))
   const data = (await axios.all(wrapping)).map((res) => res.data)
 
   return data
 }
 
+async function getStroyByID(id: number): Promise<any> {
+  return (await axios.get(url.getStory(id))).data
+}
+
 export type { Story, StoryType }
 
-export { getStories }
+export { getStories, getStroyByID }
