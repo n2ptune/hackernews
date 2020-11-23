@@ -30,7 +30,7 @@ const DetailLayout: React.FC<RouteComponentProps> = () => {
       ) : (
         <DetailContainer className="container">
           <Item story={story} />
-          <Comments comments={story.comments} />
+          <Comments comments={story.comments} count={story.comments_count} />
         </DetailContainer>
       )}
     </>
