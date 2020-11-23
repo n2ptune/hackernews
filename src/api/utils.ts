@@ -23,25 +23,38 @@ function extractStartToEnd(option: ExtractOption): number[] {
   return option.value.slice(option.start, option.end)
 }
 
-function distanceDateFromNow(ts: number, now: number = 1605765464624): string {
-  const oneday = 24 * 60 ** 2 * 1000
+function distanceDateFromNow(ts: number, now?: number): string | boolean {
   const from = now || Date.now()
+
+  if (ts > from) {
+    return false
+  }
+
+  if (ts.toString().length !== from.toString().length) {
+    ts = ts * 1000
+  }
+
   const distance = from - ts
-  const diff = distance / oneday
+  const diffMinutes = distance / 60 / 1000
 
-  // 하루 이상
-  if (diff >= 1) {
-    return `${Math.floor(diff)}일 전`
+  if (diffMinutes >= 1440) {
+    return `${Math.floor(diffMinutes / 60 / 24)}일 전`
   } else {
-    const to = new Date(ts)
-    const fromDate = new Date(from)
-    const hourDistance = fromDate.getHours() - to.getHours()
+    const hours = diffMinutes / 60
 
-    if (hourDistance <= 0) {
-      return `몇분 전`
+    if (hours >= 0.6) {
+      return `${Math.floor(hours) || Math.floor(hours) + 1}시간 전`
+    } else {
+      const fi = hours.toFixed(2).split('.')[1]
+
+      if (fi[0] === '0') {
+        if (fi[1] === '0') {
+          return `몇초 전`
+        }
+        return `${fi[1]}분 전`
+      }
+      return `${fi[0]}${fi[1]}분 전`
     }
-
-    return `${fromDate.getHours() - to.getHours()}시간 전`
   }
 }
 

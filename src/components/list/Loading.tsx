@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader'
 import styled from 'styled-components'
 
 const LoadingContainer = styled.div`
-  margin: 0 auto;
+  margin: 0.25rem auto;
   background: white;
 `
 

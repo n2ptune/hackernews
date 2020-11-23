@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { distanceDateFromNow } from '../../api/utils'
 
 interface DetailStory {
   id?: number
@@ -42,17 +43,6 @@ const UserLink = styled.span`
   margin-right: 0.5rem;
 `
 
-const formatTimeAgo = (time: string | undefined): string => {
-  if (typeof time === 'undefined') {
-    return ''
-  }
-  return time
-    .replace('hours', '시간')
-    .replace('ago', '전')
-    .replace('days', '일')
-    .replace(' ', '')
-}
-
 const Item: React.FC<DetailItemComponentProps> = (props) => {
   return (
     <Wrapper>
@@ -69,7 +59,9 @@ const Item: React.FC<DetailItemComponentProps> = (props) => {
         <UserLink>
           <Link to={`/user/${props.story.user}`}>{props.story.user}</Link>
         </UserLink>
-        <span>{formatTimeAgo(props.story.time_ago)}</span>
+        <span>
+          {distanceDateFromNow(props.story.time as number, Date.now())}
+        </span>
       </div>
     </Wrapper>
   )
