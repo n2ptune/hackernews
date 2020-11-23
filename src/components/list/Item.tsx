@@ -34,12 +34,14 @@ const Comments = styled(User)``
 
 const Score = styled.div`
   align-self: center;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
+  padding: 0 1rem;
   height: 100%;
   font-size: 1.2rem;
   font-weight: bold;
   display: none;
   color: var(--head-color);
+  text-align: center;
 
   @media ${device.tablet} {
     display: block;
