@@ -16,6 +16,9 @@ const url = {
   },
   getStoryOrigin(id: number): string {
     return `https://hacker-news.firebaseio.com/v0/item/${id}.json`
+  },
+  getUser(name: string): string {
+    return `https://api.hackerwebapp.com/user/${name}`
   }
 }
 

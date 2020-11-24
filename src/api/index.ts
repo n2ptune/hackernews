@@ -70,6 +70,10 @@ async function getStroyByID(id: number): Promise<any> {
   return (await axios.get(url.getStory(id))).data
 }
 
+async function getUserByName(name: string): Promise<any> {
+  return (await axios.get(url.getUser(name))).data
+}
+
 export type { Story, StoryType }
 
-export { getStories, getStroyByID }
+export { getStories, getStroyByID, getUserByName }
