@@ -34,6 +34,15 @@ interface Story {
   descendants?: number
 }
 
+interface User {
+  id?: string
+  created_time?: number
+  created?: string
+  karma?: number
+  avg?: number
+  about?: string
+}
+
 type StoryType =
   | 'newStories'
   | 'topStories'
@@ -70,10 +79,10 @@ async function getStroyByID(id: number): Promise<any> {
   return (await axios.get(url.getStory(id))).data
 }
 
-async function getUserByName(name: string): Promise<any> {
+async function getUserByName(name: string): Promise<User> {
   return (await axios.get(url.getUser(name))).data
 }
 
-export type { Story, StoryType }
+export type { Story, StoryType, User }
 
 export { getStories, getStroyByID, getUserByName }
